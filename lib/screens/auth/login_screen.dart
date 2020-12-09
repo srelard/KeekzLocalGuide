@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:keekz_local_guide/utilities/constants.dart';
 
 class LoginScreen extends StatefulWidget {
+  static final String id = 'feed_screen';
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }

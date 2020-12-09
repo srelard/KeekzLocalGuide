@@ -1,6 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:keekz_local_guide/models/user_data.dart';
+import 'package:keekz_local_guide/screens/activity/activity_screen.dart';
+import 'package:keekz_local_guide/screens/create_keekz/create_keekz_screen.dart';
+import 'package:keekz_local_guide/screens/inspire_me/inspire_me_screen.dart';
+import 'package:keekz_local_guide/screens/map/map_screen.dart';
+import 'package:keekz_local_guide/screens/profile/profile_screen.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {

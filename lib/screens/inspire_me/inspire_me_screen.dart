@@ -1,32 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:keekz_local_guide/models/post_model.dart';
+import 'package:keekz_local_guide/models/user_model.dart';
+import 'package:keekz_local_guide/services/database_service.dart';
+import 'package:keekz_local_guide/widgets/keekz_view.dart';
 
-class FeedScreen extends StatefulWidget {
+class InspireMeScreen extends StatefulWidget {
   static final String id = 'feed_screen';
   final String currentUserId;
 
-  FeedScreen({this.currentUserId});
+  InspireMeScreen({this.currentUserId});
 
   @override
-  _FeedScreenState createState() => _FeedScreenState();
+  _InspireMeScreenState createState() => _InspireMeScreenState();
 }
 
-class _FeedScreenState extends State<FeedScreen> {
-  /// SETUP FEED is unnecessary because we switched it from a FutureBuilder to a StreamBuilder
-  // List<Post> _posts = [];
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _setupFeed();
-  // }
-
-  // _setupFeed() async {
-  //   List<Post> posts = await DatabaseService.getFeedPosts(widget.currentUserId);
-  //   setState(() {
-  //     _posts = posts;
-  //   });
-  // }
-
+class _InspireMeScreenState extends State<InspireMeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +24,7 @@ class _FeedScreenState extends State<FeedScreen> {
           'Instagram',
           style: TextStyle(
             color: Colors.black,
-            fontFamily: 'Billabong',
+            fontFamily: 'OpenSans',
             fontSize: 35.0,
           ),
         ),

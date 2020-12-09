@@ -1,10 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:keekz_local_guide/models/activity_model.dart';
+import 'package:keekz_local_guide/models/post_model.dart';
 import 'package:keekz_local_guide/models/user_model.dart';
 import 'package:keekz_local_guide/utilities/constants.dart';
 
 class DatabaseService {
   static void updateUser(User user) {
-    usersRef.document(user.id).updateData({
+    usersRef.doc(user.id).update({
       'name': user.name,
       'profileImageUrl': user.profileImageUrl,
       'bio': user.bio,
@@ -13,7 +15,7 @@ class DatabaseService {
 
   static Future<QuerySnapshot> searchUsers(String name) {
     Future<QuerySnapshot> users =
-        usersRef.where('name', isGreaterThanOrEqualTo: name).getDocuments();
+        usersRef.where('name', isGreaterThanOrEqualTo: name).get();
     return users;
   }
 
@@ -91,12 +93,12 @@ class DatabaseService {
 
   static Stream<List<Post>> getFeedPosts(String userId) {
     return feedsRef
-        .document(userId)
+        .doc(userId)
         .collection('userFeed')
         .orderBy('timestamp', descending: true)
         .snapshots()
         .map((snapshot) =>
-            snapshot.documents.map((doc) => Post.fromDoc(doc)).toList());
+            snapshot.docs.map((doc) => Post.fromDoc(doc)).toList());
   }
 
   static Future<List<Post>> getUserPosts(String userId) async {
@@ -111,7 +113,7 @@ class DatabaseService {
   }
 
   static Future<User> getUserWithId(String userId) async {
-    DocumentSnapshot userDocSnapshot = await usersRef.document(userId).get();
+    DocumentSnapshot userDocSnapshot = await usersRef.doc(userId).get();
     if (userDocSnapshot.exists) {
       return User.fromDoc(userDocSnapshot);
     }
@@ -122,7 +124,7 @@ class DatabaseService {
     DocumentReference postRef =
         postsRef.doc(post.authorId).collection('userPosts').doc(post.id);
     postRef.get().then((doc) {
-      int likeCount = doc.data['likeCount'];
+      int likeCount = doc.data()['likeCount'];
       postRef.update({'likeCount': likeCount + 1});
       likesRef.doc(post.id).collection('postLikes').doc(currentUserId).set({});
       addActivityItem(currentUserId: currentUserId, post: post, comment: null);
@@ -133,8 +135,8 @@ class DatabaseService {
     DocumentReference postRef =
         postsRef.doc(post.authorId).collection('userPosts').doc(post.id);
     postRef.get().then((doc) {
-      int likeCount = doc.data['likeCount'];
-      postRef.updateData({'likeCount': likeCount - 1});
+      int likeCount = doc.data()['likeCount'];
+      postRef.update({'likeCount': likeCount - 1});
       likesRef
           .doc(post.id)
           .collection('postLikes')

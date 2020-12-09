@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
-import 'package:flutter_instagram_clone/utilities/constants.dart';
+import 'package:keekz_local_guide/utilities/constants.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:uuid/uuid.dart';
 
@@ -18,10 +18,10 @@ class StorageService {
       photoId = exp.firstMatch(url)[1];
     }
 
-    StorageUploadTask uploadTask = storageRef
+    UploadTask uploadTask = storageRef
         .child('images/users/userProfile_$photoId.jpg')
         .putFile(image);
-    StorageTaskSnapshot storageSnap = await uploadTask.onComplete;
+    TaskSnapshot storageSnap = await uploadTask;
     String downloadUrl = await storageSnap.ref.getDownloadURL();
     return downloadUrl;
   }
@@ -40,12 +40,10 @@ class StorageService {
   static Future<String> uploadPost(File imageFile) async {
     String photoId = Uuid().v4();
     File image = await compressImage(photoId, imageFile);
-    StorageUploadTask uploadTask = storageRef
-        .child('images/posts/post_$photoId.jpg')
-        .putFile(image);
-    StorageTaskSnapshot storageSnap = await uploadTask.onComplete;
+    UploadTask uploadTask =
+        storageRef.child('images/posts/post_$photoId.jpg').putFile(image);
+    TaskSnapshot storageSnap = await uploadTask;
     String downloadUrl = await storageSnap.ref.getDownloadURL();
     return downloadUrl;
   }
-
 }

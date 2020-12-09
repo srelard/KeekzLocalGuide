@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:keekz_local_guide/models/post_model.dart';
 import 'package:keekz_local_guide/models/user_model.dart';
 import 'package:keekz_local_guide/screens/comments/comments_screen.dart';
+import 'package:keekz_local_guide/screens/profile/profile_screen.dart';
 import 'package:keekz_local_guide/services/database_service.dart';
 
 class PostView extends StatefulWidget {

@@ -1,12 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_instagram_clone/models/activity_model.dart';
-import 'package:flutter_instagram_clone/models/post_model.dart';
-import 'package:flutter_instagram_clone/models/user_data.dart';
-import 'package:flutter_instagram_clone/models/user_model.dart';
-import 'package:flutter_instagram_clone/screens/comments_screen.dart';
-import 'package:flutter_instagram_clone/services/database_service.dart';
 import 'package:intl/intl.dart';
+import 'package:keekz_local_guide/models/activity_model.dart';
+import 'package:keekz_local_guide/models/post_model.dart';
+import 'package:keekz_local_guide/models/user_data.dart';
+import 'package:keekz_local_guide/models/user_model.dart';
+import 'package:keekz_local_guide/screens/comments/comments_screen.dart';
+import 'package:keekz_local_guide/services/database_service.dart';
 import 'package:provider/provider.dart';
 
 class ActivityScreen extends StatefulWidget {
@@ -50,7 +50,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
             radius: 20.0,
             backgroundColor: Colors.grey,
             backgroundImage: user.profileImageUrl.isEmpty
-                ? AssetImage('assets/images/user_placeholder.jpg')
+                ? AssetImage('assets/images/placeholder/user_placeholder.jpg')
                 : CachedNetworkImageProvider(user.profileImageUrl),
           ),
           title: activity.comment != null
@@ -95,7 +95,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
           'Instagram',
           style: TextStyle(
             color: Colors.black,
-            fontFamily: 'Billabong',
+            fontFamily: 'OpenSans',
             fontSize: 35.0,
           ),
         ),

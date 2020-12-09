@@ -3,6 +3,7 @@ import 'package:keekz_local_guide/models/user_data.dart';
 import 'package:keekz_local_guide/screens/auth/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:keekz_local_guide/screens/home_screen.dart';
+import 'package:keekz_local_guide/screens/inspire_me/inspire_me_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() => runApp(MyApp());
