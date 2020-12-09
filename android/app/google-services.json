@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "210696669687",
+    "project_id": "keekzlocalguide",
+    "storage_bucket": "keekzlocalguide.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:210696669687:android:6978b126f4dffe71e886f2",
+        "android_client_info": {
+          "package_name": "keekz.de.keekz_local_guide"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "210696669687-k8n249f5ifp5lul0pmhsn4232hgrt14r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGpwZfe39e84AFVi6FQzfFW16JYvF4vAQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "210696669687-k8n249f5ifp5lul0pmhsn4232hgrt14r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
