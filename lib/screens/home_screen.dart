@@ -25,14 +25,14 @@ class _HomeScreenState extends State<HomeScreen> {
       body: PageView(
         controller: _pageController,
         children: <Widget>[
-          /* FeedScreen(currentUserId: currentUserId),
-          SearchScreen(),
-          CreatePostScreen(),
+          InspireMeScreen(currentUserId: currentUserId),
+          MapScreen(),
+          CreateKeekzScreen(),
           ActivityScreen(currentUserId: currentUserId),
           ProfileScreen(
             currentUserId: currentUserId,
             userId: currentUserId,
-          ), */
+          ),
         ],
         onPageChanged: (int index) {
           setState(() {
@@ -62,27 +62,31 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.search,
+              Icons.map_outlined,
               size: 32.0,
             ),
+            label: "Karte",
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.photo_camera,
+              Icons.add,
               size: 32.0,
             ),
+            label: "Keekz",
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.notifications,
               size: 32.0,
             ),
+            label: "Benachrichtigung",
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.account_circle,
+              Icons.person,
               size: 32.0,
             ),
+            label: "Profil",
           ),
         ],
       ),
