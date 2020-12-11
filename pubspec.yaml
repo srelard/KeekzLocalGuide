@@ -33,7 +33,7 @@ dependencies:
   uuid: ^2.2.2
   image_picker: ^0.6.7+14
   cached_network_image: ^2.4.1
-  animator: 1.0.0+3
+  animator: 1.0.0+5
   flutter_image_compress: ^0.7.0
 
 dev_dependencies:
